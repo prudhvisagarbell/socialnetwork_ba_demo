@@ -1,0 +1,41 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/emptypagetemplate.xhtml">
+
+	<ui:define name="content">
+     <div class="layout-portlets-box">
+            <div class="Container20 Responsive50">
+                <div class="ContainerIndent">
+                    <div class="BigTopic">
+                    <p:graphicImage value="/images/box_shot.gif" width="150"
+												height="130" />
+                        <h2 class="black Fs24 FontRalewayMedium"> Name of person</h2>
+                        <span class="Fs15 gray FontRalewayRegular DispBlock">age, client, etc, NIKKEI, DAX</span>
+                    </div>
+                    <div class="EmptyBox10"></div>
+                    <div class="Container100">
+                      <p:outputLabel for="listbox" value="Listbox"/>
+                        <p:selectOneListbox id="listbox">
+                            <f:selectItem itemLabel="Sentinel" itemValue="Sentinel" />
+                            <f:selectItem itemLabel="Spark" itemValue="Spark" />
+                            <f:selectItem itemLabel="Ronin" itemValue="Ronin" />
+                            <f:selectItem itemLabel="Rio" itemValue="Rio" />
+                            <f:selectItem itemLabel="Primus" itemValue="Primus" />
+                        </p:selectOneListbox>
+                 
+                    </div>
+                </div>
+            </div>
+            <div class="Container80 Responsive50">
+            
+<p:chart type="metergauge" model="#{userManager.meterGaugeModel2}" style="width:400px;height:250px" />
+       </div>
+        </div>
+
+	</ui:define>
+
+</ui:composition>
