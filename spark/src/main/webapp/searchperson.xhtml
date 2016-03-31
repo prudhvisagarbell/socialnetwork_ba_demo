@@ -1,0 +1,208 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/emptypagetemplate.xhtml">
+
+	<ui:define name="content">
+		<div class="layout-portlets-box">
+			<div class="layout-portlets-box">
+				<div class="Container100 ui-fluid">
+					<div class="ContainerIndent">
+						<h:form>
+							<p:dataScroller value="#{userManager.profiles}" var="profile"
+								chunkSize="2">
+
+								<div class="ui-grid ui-grid-responsive">
+									<div class="ui-grid-row">
+										<div>
+										
+											<p:graphicImage value="/images/box_shot.gif" width="150"
+												height="130" />
+										</div>
+										&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+										<p:outputPanel style="width: 250px">
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="First Name :" />
+												<h:outputText value="#{profile.firstName}"
+													style="font-weight: bold" />
+
+												<h:outputText value="Last Name :" />
+												<h:outputText value="#{profile.lastName}"
+													style="font-weight: bold" />
+
+												<h:outputText value="Email :" />
+												<h:outputText value="#{profile.email}"
+													style="font-weight: bold" />
+												<h:outputText value="Job Title :" />
+												<h:outputText value="#{profile.jobTitle}"
+													style="font-weight: bold" />
+											</h:panelGrid>
+										</p:outputPanel>
+
+
+										&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+
+
+										<p:outputPanel style="width: 350px">
+											<h:panelGrid columns="2" cellpadding="5">
+												<h:outputText value="Current Company:" />
+												<h:outputText value="#{profile.company}"
+													style="font-weight: bold" />
+
+
+											</h:panelGrid>
+										</p:outputPanel>
+
+
+										&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;
+										<div class="ui-grid-col-5">
+
+
+
+											<br />
+											<p:accordionPanel multiple="false" activeIndex=""
+												style="width:500px">
+												<p:tab title="Human Resource/View">
+													<div class="ui-grid ui-grid-responsive">
+														<div class="ui-grid-row">
+															<div class="ui-grid-col-7">
+																<p:inputText placeholder="Enter subscribed Email" />
+															</div>
+															<div class="ui-grid-col-3">
+																<p:button value="View Profile" />
+															</div>
+														</div>
+													</div>
+													<br />
+													<div class="ui-grid ui-grid-responsive">
+														<div class="ui-grid-row">
+															<div class="ui-grid-col-6">
+																<p:commandLink value="Pay 1$ to view profile"
+																	onclick="PF('paydollar').show();" />
+															</div>
+															<div class="ui-grid-col-6">
+																<p:commandLink value="Subscribe for multiple	profiles"
+																	onclick="PF('subscribe').show();" />
+															</div>
+														</div>
+													</div>
+												</p:tab>
+												<p:tab title="Coworker/Add feedback" closable="false">
+
+													<div class="ui-grid ui-grid-responsive">
+														<div class="ui-grid-row">
+															<div class="ui-grid-col-4">Please Select the Client</div>
+															<div class="ui-grid-col-8">
+
+																<p:selectOneMenu id="advanced" value=""
+																	panelStyle="width:180px" effect="fade" var="t"
+																	style="width:160px" filter="true"
+																	filterMatchMode="startsWith">
+																	<f:selectItems value="" var="theme" itemLabel=""
+																		itemValue="" />
+
+																	<p:column style="width:10%">
+																		<h:outputText styleClass="ui-theme ui-theme-#{t.name}" />
+																	</p:column>
+
+																	<p:column>
+																		<h:outputText value="" />
+																	</p:column>
+																</p:selectOneMenu>
+
+															</div>
+														</div>
+													</div>
+													<div class="ui-grid ui-grid-responsive">
+														<div class="ui-grid-row">
+															<div class="ui-grid-col-7">
+																<p:inputText placeholder="Enter you Email" />
+
+															</div>
+															<div class="ui-grid-col-4">
+																<p:button value="Add Feedback" />
+															</div>
+														</div>
+													</div>
+												</p:tab>
+											</p:accordionPanel>
+										</div>
+									</div>
+								</div>
+
+							</p:dataScroller>
+
+							<p:dialog header="CreditCard payment" widgetVar="paydollar"
+								modal="true" responsive="true">
+                        Name on the card*
+                         <p:inputText />
+
+								<div>
+									<br />Card Number*
+								</div>
+								<p:inputText />
+								<div class="ui-grid ui-grid-responsive">
+									<br />
+									<div class="ui-grid-row">
+										<div class="ui-grid-col-6">Exipres*</div>
+										<div class="ui-grid-col-6">CVC*</div>
+									</div>
+								</div>
+								<div class="ui-grid ui-grid-responsive">
+									<div class="ui-grid-row">
+										<div class="ui-grid-col-6">
+
+											<p:inputText />
+
+
+										</div>
+										<div class="ui-grid-col-6">
+											<p:inputText />
+										</div>
+									</div>
+								</div>
+								<br />
+								<p:button value="Submit Payment 1$" styleClass="GreenButton" />
+							</p:dialog>
+
+
+							<p:dialog header="Modal Dialog" widgetVar="subscribe"
+								modal="true" height="50" responsive="true">
+								  Name on the card*
+                         <p:inputText />
+
+								<div>
+									<br />Card Number*
+								</div>
+								<p:inputText />
+								<div class="ui-grid ui-grid-responsive">
+									<br />
+									<div class="ui-grid-row">
+										<div class="ui-grid-col-6">Exipres*</div>
+										<div class="ui-grid-col-6">CVC*</div>
+									</div>
+								</div>
+								<div class="ui-grid ui-grid-responsive">
+									<div class="ui-grid-row">
+										<div class="ui-grid-col-6">
+
+											<p:inputText />
+										</div>
+										<div class="ui-grid-col-6">
+											<p:inputText />
+										</div>
+									</div>
+								</div>
+								<br />
+								<p:button value="Submit Payment" styleClass="GreenButton" />
+							</p:dialog>
+						</h:form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</ui:define>
+
+</ui:composition>
