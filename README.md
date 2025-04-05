@@ -1,1 +1,1 @@
-# socialnetwork_babai_demo
+# socialnetwork_ba_demo
